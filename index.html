@@ -172,6 +172,155 @@
     .btn.primary { background: var(--navy); color: #fff; border-color: var(--navy); }
     .btn.primary:hover { background: #152f5e; }
 
+    /* ── NEWS & ANALYSIS ── */
+    .news-section { margin-bottom: 4rem; }
+
+    /* Article accordion */
+    .news-accordion {
+      background: var(--white);
+      border: 1px solid var(--border);
+    }
+
+    .accordion-trigger {
+      width: 100%; background: none; border: none; cursor: pointer;
+      padding: 1.6rem 2rem;
+      display: flex; align-items: flex-start; justify-content: space-between; gap: 1.5rem;
+      text-align: left;
+      transition: background 0.15s;
+    }
+    .accordion-trigger:hover { background: #fbfcfe; }
+
+    .accordion-meta { display: flex; flex-direction: column; gap: 0.45rem; }
+
+    .news-issue {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--lt);
+    }
+
+    .news-article-title {
+      font-family: 'IBM Plex Serif', serif;
+      font-size: 1.05rem; font-weight: 600; color: var(--navy);
+      line-height: 1.35;
+    }
+
+    .news-article-date {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.68rem; color: var(--lt);
+    }
+
+    .accordion-right {
+      display: flex; align-items: center; gap: 0.8rem; flex-shrink: 0;
+    }
+
+    .news-tag {
+      font-size: 0.6rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.18rem 0.5rem; border-radius: 2px;
+      background: #edf0f7; color: var(--navy); border: 1px solid #c5ccdb;
+      white-space: nowrap;
+    }
+
+    .accordion-chevron {
+      width: 22px; height: 22px; border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; transition: transform 0.25s ease, background 0.15s;
+    }
+    .accordion-chevron svg { transition: transform 0.25s ease; }
+    .accordion-trigger[aria-expanded="true"] .accordion-chevron { background: var(--navy); border-color: var(--navy); }
+    .accordion-trigger[aria-expanded="true"] .accordion-chevron svg { stroke: #fff; transform: rotate(180deg); }
+
+    /* Article body panel */
+    .accordion-panel {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.35s ease;
+      border-top: 0px solid var(--border);
+    }
+    .accordion-panel.open {
+      max-height: 2000px;
+      border-top: 1px solid var(--border);
+    }
+
+    .news-content {
+      padding: 1.8rem 2rem;
+    }
+    .news-content p {
+      font-size: 0.875rem;
+      color: var(--mid);
+      line-height: 1.82;
+      margin-bottom: 1.1rem;
+    }
+    .news-content p:last-child { margin-bottom: 0; }
+
+    /* Sources accordion */
+    .sources-accordion {
+      border-top: 1px solid var(--border);
+    }
+
+    .sources-trigger {
+      width: 100%; background: var(--bg); border: none; cursor: pointer;
+      padding: 0.9rem 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      text-align: left;
+      transition: background 0.15s;
+    }
+    .sources-trigger:hover { background: #eff1f5; }
+
+    .sources-trigger-label {
+      font-size: 0.62rem; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--lt);
+    }
+
+    .sources-chevron {
+      width: 20px; height: 20px; border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; transition: background 0.15s;
+    }
+    .sources-trigger[aria-expanded="true"] .sources-chevron { background: var(--navy); border-color: var(--navy); }
+    .sources-trigger[aria-expanded="true"] .sources-chevron svg { stroke: #fff; transform: rotate(180deg); }
+    .sources-chevron svg { transition: transform 0.25s ease; }
+
+    .sources-panel {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.3s ease;
+      background: var(--bg);
+    }
+    .sources-panel.open { max-height: 1200px; }
+
+    /* Source rows — mirroring reference image style */
+    .source-row {
+      display: flex; align-items: flex-start;
+      border-top: 1px solid var(--border);
+      padding: 1rem 2rem;
+      gap: 1.5rem;
+    }
+    .source-outlet {
+      font-size: 0.68rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--text);
+      min-width: 90px; flex-shrink: 0; padding-top: 0.1rem;
+    }
+    .source-detail { display: flex; flex-direction: column; gap: 0.3rem; }
+    .source-title-line { display: flex; align-items: baseline; gap: 0.5rem; flex-wrap: wrap; }
+    .source-title {
+      font-family: 'IBM Plex Serif', serif;
+      font-size: 0.85rem; font-style: italic;
+      color: var(--text); text-decoration: none;
+      line-height: 1.4;
+    }
+    .source-title:hover { color: var(--navy); text-decoration: underline; }
+    .source-date {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.62rem; color: var(--lt); white-space: nowrap;
+    }
+    .source-url {
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.62rem; color: #5b7ec9;
+      text-decoration: none; word-break: break-all;
+    }
+    .source-url:hover { text-decoration: underline; }
+
     /* ── PROFILE ── */
     .profile-section {
       background: var(--white);
@@ -254,6 +403,9 @@
       .hero { padding: 3rem 1.5rem; }
       .wrap, .header-inner, .profile-section, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
       .profile-body { flex-direction: column; }
+      .accordion-trigger { flex-direction: column; gap: 0.7rem; }
+      .accordion-right { align-self: flex-start; }
+      .source-row { flex-direction: column; gap: 0.4rem; }
     }
 
     /* ── REVEAL ── */
@@ -273,6 +425,7 @@
     </a>
     <nav>
       <a href="#work">Work</a>
+      <a href="#news">News</a>
       <a href="#about">About</a>
     </nav>
   </div>
@@ -337,13 +490,175 @@
   </div>
 </div>
 
+<!-- ── NEWS & ANALYSIS ── -->
+<div class="wrap" id="news">
+  <div class="section-rule rv">
+    <span class="section-rule-title">News &amp; Analysis</span>
+    <span class="section-rule-count">01 article</span>
+  </div>
+
+  <div class="news-section rv d1">
+    <div class="news-accordion">
+
+      <!-- Article toggle -->
+      <button class="accordion-trigger" aria-expanded="false" onclick="toggleAccordion(this, 'article-panel')">
+        <div class="accordion-meta">
+          <span class="news-issue">Weekly Market News in 10 · Issue 01</span>
+          <div class="news-article-title">Uncertain Geopolitics Fuelling Stagflation Fears and Market Uncertainty</div>
+          <span class="news-article-date">15 March 2026</span>
+        </div>
+        <div class="accordion-right">
+          <span class="news-tag">Macro</span>
+          <div class="accordion-chevron">
+            <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" width="9" height="9"><path d="M2 3.5l3 3 3-3"/></svg>
+          </div>
+        </div>
+      </button>
+
+      <!-- Article body -->
+      <div class="accordion-panel" id="article-panel">
+        <div class="news-content">
+          <p>US-Israeli strikes on Iran have abruptly halted what appeared to be a constructive start to 2026 for equity markets. Brent crude and WTI have surged past $100 per barrel, driven by acute supply disruptions through the Strait of Hormuz — a vital chokepoint through which roughly 20% of the world's crude oil transits annually. With investors increasingly pricing in the prospect of a protracted conflict and a sustained blockage of this critical shipping lane, the S&amp;P 500 has shed almost 360 b.p., while the Dow Jones Industrial Average has fallen over 430 b.p. from recent highs.</p>
+          <p>Yet the geopolitical shock does not stand alone. February's nonfarm payrolls fell 92,000, well below the consensus expectation of a 55,000 gain, while the unemployment rate edged higher to 4.4%. The combination of rising unemployment, elevated energy prices, and an unstable geopolitical backdrop has prompted comparisons to the stagflation of the 1970s. The Fed now finds itself in a deeply uncomfortable position: cut rates to defend employment at the risk of entrenching inflation, or hold its policy steady to control prices at the cost of a sharper economic slowdown. Neither path is clean, and markets are beginning to price in that uncertainty.</p>
+          <p>On the equity side, the AI capex narrative which underpinned much of the bull case heading into 2026 is facing increased investor scrutiny. Concerns over the sustainability of data centre spending by hyperscalers and the Magnificent Seven have rippled across multiple sectors — from software and data providers to technology hardware manufacturers and financial institutions with sizeable exposure to technology lending. These developments cast doubt on the premise that AI-driven earnings growth would broaden beyond mega-cap technology into the wider S&amp;P 500 in 2026.</p>
+          <p>That said, the bear case is not without its counterweights. The fundamentals have not broken. Household balance sheets are healthy, real PCE is expanding, and S&amp;P 500 earnings are on track for 14% growth, modestly ahead of last year's 13%.</p>
+          <p>One might expect this environment to drive capital into traditional safe havens. Yet cross-asset correlations are offering little comfort. Both gold and US Treasuries closed lower last week even as volatility surged — a reminder that during periods of acute macro stress, conventional diversification relationships can break down precisely when they are needed most.</p>
+          <p>Looking ahead, the key variable to monitor is the persistence of the oil price shock. Should crude prices sustain levels above $100 per barrel, it would represent more than a transient geopolitical premium. It could signal the beginning of a structural shift in the global trade and energy landscape, with deep downstream consequences for inflation, monetary policy, and equity valuations across the board.</p>
+        </div>
+
+        <!-- Sources accordion (nested inside article panel) -->
+        <div class="sources-accordion">
+          <button class="sources-trigger" aria-expanded="false" onclick="toggleAccordion(this, 'sources-panel')">
+            <span class="sources-trigger-label">Sources</span>
+            <div class="sources-chevron">
+              <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" width="9" height="9"><path d="M2 3.5l3 3 3-3"/></svg>
+            </div>
+          </button>
+          <div class="sources-panel" id="sources-panel">
+            <div class="source-row">
+              <span class="source-outlet">Al Jazeera</span>
+              <div class="source-detail">
+                <div class="source-title-line">
+                  <a class="source-title" href="https://www.aljazeera.com/news/2026/3/1/how-us-israel-attacks-on-iran-threaten-the-strait-of-hormuz-oil-markets" target="_blank" rel="noopener">How US-Israel attacks on Iran threaten the Strait of Hormuz, oil markets</a>
+                  <span class="source-date">1 Mar 2026</span>
+                </div>
+                <a class="source-url" href="https://www.aljazeera.com/news/2026/3/1/how-us-israel-attacks-on-iran-threaten-the-strait-of-hormuz-oil-markets" target="_blank" rel="noopener">aljazeera.com/news/2026/3/1/…</a>
+              </div>
+            </div>
+            <div class="source-row">
+              <span class="source-outlet">Al Jazeera</span>
+              <div class="source-detail">
+                <div class="source-title-line">
+                  <a class="source-title" href="https://www.aljazeera.com/economy/2026/3/13/oil-stays-above-100-a-barrel-amid-irans-stranglehold-on-strait-of-hormuz" target="_blank" rel="noopener">Oil stays above $100 a barrel amid Iran's stranglehold on Strait of Hormuz</a>
+                  <span class="source-date">13 Mar 2026</span>
+                </div>
+                <a class="source-url" href="https://www.aljazeera.com/economy/2026/3/13/oil-stays-above-100-a-barrel-amid-irans-stranglehold-on-strait-of-hormuz" target="_blank" rel="noopener">aljazeera.com/economy/2026/3/13/…</a>
+              </div>
+            </div>
+            <div class="source-row">
+              <span class="source-outlet">BLS</span>
+              <div class="source-detail">
+                <div class="source-title-line">
+                  <a class="source-title" href="https://www.bls.gov/news.release/empsit.nr0.htm" target="_blank" rel="noopener">Employment Situation Summary — February 2026</a>
+                </div>
+                <a class="source-url" href="https://www.bls.gov/news.release/empsit.nr0.htm" target="_blank" rel="noopener">bls.gov/news.release/empsit.nr0.htm</a>
+              </div>
+            </div>
+            <div class="source-row">
+              <span class="source-outlet">CNBC</span>
+              <div class="source-detail">
+                <div class="source-title-line">
+                  <a class="source-title" href="https://www.cnbc.com/2026/03/09/oil-prices-iran-war-middle-east-us-israel-strait-of-hormuz.html" target="_blank" rel="noopener">Oil prices: Analysts raise the alarm as crude soars over Iran war</a>
+                  <span class="source-date">9 Mar 2026</span>
+                </div>
+                <a class="source-url" href="https://www.cnbc.com/2026/03/09/oil-prices-iran-war-middle-east-us-israel-strait-of-hormuz.html" target="_blank" rel="noopener">cnbc.com/2026/03/09/oil-prices-iran-war…</a>
+              </div>
+            </div>
+            <div class="source-row">
+              <span class="source-outlet">CNBC</span>
+              <div class="source-detail">
+                <div class="source-title-line">
+                  <a class="source-title" href="https://www.cnbc.com/2026/03/12/stock-market-today-live-updates.html" target="_blank" rel="noopener">S&amp;P 500 falls to new low for year on Iran oil crisis, posts third-straight losing week</a>
+                  <span class="source-date">14 Mar 2026</span>
+                </div>
+                <a class="source-url" href="https://www.cnbc.com/2026/03/12/stock-market-today-live-updates.html" target="_blank" rel="noopener">cnbc.com/2026/03/12/stock-market-today…</a>
+              </div>
+            </div>
+            <div class="source-row">
+              <span class="source-outlet">CNBC</span>
+              <div class="source-detail">
+                <div class="source-title-line">
+                  <a class="source-title" href="https://www.cnbc.com/2026/03/09/fears-of-1970s-style-stagflation-arise-with-oil-spike-to-100-how-big-a-threat-is-it.html" target="_blank" rel="noopener">Fears of 1970s-style stagflation arise with oil spike to $100. How big a threat is it?</a>
+                  <span class="source-date">9 Mar 2026</span>
+                </div>
+                <a class="source-url" href="https://www.cnbc.com/2026/03/09/fears-of-1970s-style-stagflation-arise-with-oil-spike-to-100-how-big-a-threat-is-it.html" target="_blank" rel="noopener">cnbc.com/2026/03/09/fears-of-1970s-style…</a>
+              </div>
+            </div>
+            <div class="source-row">
+              <span class="source-outlet">CNBC</span>
+              <div class="source-detail">
+                <div class="source-title-line">
+                  <a class="source-title" href="https://www.cnbc.com/2026/02/13/tech-download-newsletter-ai-capex-hyperscalers.html" target="_blank" rel="noopener">The Tech Download: Can hyperscalers justify their huge AI capex?</a>
+                  <span class="source-date">13 Feb 2026</span>
+                </div>
+                <a class="source-url" href="https://www.cnbc.com/2026/02/13/tech-download-newsletter-ai-capex-hyperscalers.html" target="_blank" rel="noopener">cnbc.com/2026/02/13/tech-download…</a>
+              </div>
+            </div>
+            <div class="source-row">
+              <span class="source-outlet">CNN Business</span>
+              <div class="source-detail">
+                <div class="source-title-line">
+                  <a class="source-title" href="https://www.cnn.com/2026/03/01/business/oil-prices-us-attack-iran-vis" target="_blank" rel="noopener">Oil surges and stock futures sink as war in Iran threatens crude supply</a>
+                  <span class="source-date">1 Mar 2026</span>
+                </div>
+                <a class="source-url" href="https://www.cnn.com/2026/03/01/business/oil-prices-us-attack-iran-vis" target="_blank" rel="noopener">cnn.com/2026/03/01/business/…</a>
+              </div>
+            </div>
+            <div class="source-row">
+              <span class="source-outlet">CNN Business</span>
+              <div class="source-detail">
+                <div class="source-title-line">
+                  <a class="source-title" href="https://www.cnn.com/2026/03/04/economy/interest-rates-fed-iran-war" target="_blank" rel="noopener">With his war in Iran, Trump just made the next Fed chair's job even harder</a>
+                  <span class="source-date">4 Mar 2026</span>
+                </div>
+                <a class="source-url" href="https://www.cnn.com/2026/03/04/economy/interest-rates-fed-iran-war" target="_blank" rel="noopener">cnn.com/2026/03/04/economy/…</a>
+              </div>
+            </div>
+            <div class="source-row">
+              <span class="source-outlet">Motley Fool</span>
+              <div class="source-detail">
+                <div class="source-title-line">
+                  <a class="source-title" href="https://www.fool.com/investing/2026/03/14/trump-led-iran-war-triple-whammy-federal-reserve/" target="_blank" rel="noopener">The Trump-Led Iran War Can Lead to a Triple Whammy for the Federal Reserve</a>
+                  <span class="source-date">14 Mar 2026</span>
+                </div>
+                <a class="source-url" href="https://www.fool.com/investing/2026/03/14/trump-led-iran-war-triple-whammy-federal-reserve/" target="_blank" rel="noopener">fool.com/investing/2026/03/14/…</a>
+              </div>
+            </div>
+            <div class="source-row">
+              <span class="source-outlet">NPR</span>
+              <div class="source-detail">
+                <div class="source-title-line">
+                  <a class="source-title" href="https://www.npr.org/2026/03/01/nx-s1-5731584/oil-prices-iran-us-israel-attacks-war" target="_blank" rel="noopener">Oil prices rise sharply in market trading after attacks in Middle East disrupt supply</a>
+                  <span class="source-date">1 Mar 2026</span>
+                </div>
+                <a class="source-url" href="https://www.npr.org/2026/03/01/nx-s1-5731584/oil-prices-iran-us-israel-attacks-war" target="_blank" rel="noopener">npr.org/2026/03/01/…</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 <section class="profile-section" id="about">
   <div class="profile-inner rv">
     <div class="profile-label">About</div>
     <div class="profile-body">
       <div class="profile-name-block">
         <div class="profile-name">Ernst Koo</div>
-        <p class="profile-bio">Hi! I am a Year 2 undergraduate at Singapore Management University, studying towards a degree in Business Management with a deep interest in Finance. This website is a living collection of some of my best presentation decks built through school and competition.</p>
+        <p class="profile-bio">Hi! I am a Year 2 undergraduate at Singapore Management University, studying towards a degree in Business Management with a deep interest in Finance. This website is a living collection of some of my best presentation decks built through school and case competitions.</p>
       </div>
     </div>
   </div>
@@ -378,6 +693,13 @@
 </div>
 
 <script>
+  function toggleAccordion(trigger, panelId) {
+    const panel = document.getElementById(panelId);
+    const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+    trigger.setAttribute('aria-expanded', !isOpen);
+    panel.classList.toggle('open', !isOpen);
+  }
+
   const driveFiles = {
     'rr':    'https://drive.google.com/file/d/1U1xJ9k3LbhPivKu7TLB-Q8Eqx-YlfKIE/preview',
     'apple': 'https://drive.google.com/file/d/1D9Rx-RgqikYh-PGg6GqMNcMOGVz1NgDl/preview',
