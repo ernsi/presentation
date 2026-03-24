@@ -307,7 +307,7 @@
       <p class="card-desc">Full equity research report covering Civil Aerospace growth tailwinds, Power Systems data-centre demand, and a fiscal turnaround driven by margin expansion and share buybacks. Valuation via trading comparables.</p>
 
       <div class="card-actions">
-        <button class="btn primary" onclick="openModal('Ernst_RRL_Presentation_Deck.pdf','Rolls-Royce Holdings PLC','LON: RR.L · Equity Research · January 2026')">
+        <button class="btn primary" onclick="openModal('rr','Rolls-Royce Holdings PLC','LON: RR.L · Equity Research · January 2026')">
           <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" width="10" height="10"><rect x="1" y="1" width="10" height="10" rx="1"/><path d="M3 4h6M3 6h6M3 8h3"/></svg>
           View Deck
         </button>
@@ -327,7 +327,7 @@
       <p class="card-desc">Equity research report analysing Apple's Services revenue flywheel, hardware ecosystem lock-in, and capital return programme. Thesis built on margin resilience and compounding free cash flow generation.</p>
 
       <div class="card-actions">
-        <button class="btn primary" onclick="openModal('Ernst_APPL_Presentation_Deck.pdf','Apple Inc.','NASDAQ: AAPL · Equity Research · 2025')">
+        <button class="btn primary" onclick="openModal('apple','Apple Inc.','NASDAQ: AAPL · Equity Research · 2025')">
           <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" width="10" height="10"><rect x="1" y="1" width="10" height="10" rx="1"/><path d="M3 4h6M3 6h6M3 8h3"/></svg>
           View Deck
         </button>
@@ -378,11 +378,19 @@
 </div>
 
 <script>
-  function openModal(file, title, sub) {
-    document.getElementById('mFrame').src = file;
+  const driveFiles = {
+    'rr':    'https://drive.google.com/file/d/1U1xJ9k3LbhPivKu7TLB-Q8Eqx-YlfKIE/preview',
+    'apple': 'https://drive.google.com/file/d/1D9Rx-RgqikYh-PGg6GqMNcMOGVz1NgDl/preview',
+  };
+  const driveDownload = {
+    'rr':    'https://drive.google.com/uc?export=download&id=1U1xJ9k3LbhPivKu7TLB-Q8Eqx-YlfKIE',
+    'apple': 'https://drive.google.com/uc?export=download&id=1D9Rx-RgqikYh-PGg6GqMNcMOGVz1NgDl',
+  };
+  function openModal(key, title, sub) {
+    document.getElementById('mFrame').src = driveFiles[key];
     document.getElementById('mTitle').textContent = title;
     document.getElementById('mSub').textContent = sub || '';
-    document.getElementById('mDl').href = file;
+    document.getElementById('mDl').href = driveDownload[key];
     document.getElementById('modal').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
